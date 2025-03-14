@@ -81,18 +81,16 @@ int main() {
     rtc_set_datetime(&t);
 
     bool leitura_ativa = false;
-    char comando;
 
     printf("Digite 's' para Start ou 'p' para Stop:\n");
 
 
     while (true) {
 
-        comando = getchar_timeout_us(100000);
-        if (comando == 's' || comando == 'S') {
+        if (getchar_timeout_us(100000) == 's' || getchar_timeout_us(100000) == 'S') {
             leitura_ativa = true;
             printf("Iniciando medições...\n");
-        } else if (comando == 'p' || comando == 'P') {
+        } else if (getchar_timeout_us(100000) == 'p' || getchar_timeout_us(100000) == 'P') {
             leitura_ativa = false;
             printf("Parando medições...\n");
         }
